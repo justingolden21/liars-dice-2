@@ -1,5 +1,6 @@
 import localStore from '$lib/util/localStore';
 
+
 const defaultGame = {
 	players: [
 		{
@@ -12,14 +13,13 @@ const defaultGame = {
 		}
 	],
 	numDice: 5,
-	state: {
-		turn: 0,
-		passThePhone: true,
-		over: true
-	},
+    turn: 0,
+    over: true,
+	state: 'passPhone', // playerDash, passPhone, roundEnd, gameEnd
 	bet: {
 		amount: 1,
-		face: 2
+		face: 2,
+        state: 'ongoing' // ongoing, called, spotted
 	}
 };
 

@@ -19,7 +19,7 @@
 			});
 		}
 		$game.players = players;
-        $game.state.over = false;
+        $game.over = false;
 
 		// Close modal
 		modal.set(null);

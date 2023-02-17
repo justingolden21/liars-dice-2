@@ -3,11 +3,9 @@
 
 	import Modal, { bind } from 'svelte-simple-modal';
 
-	import { game } from '$lib/stores/game';
-
-	import NewGameModal from '$lib/modals/NewGameModal.svelte';
+	import RaiseBetModal from '$lib/modals/RaiseBetModal.svelte';
 	const modal = writable(null);
-	const showModal = () => modal.set(bind(NewGameModal, { modal }));
+	const showModal = () => modal.set(bind(RaiseBetModal, { modal }));
 </script>
 
 <Modal show={$modal}>
@@ -15,6 +13,6 @@
 		on:click={showModal}
 		class="block px-4 py-2 bg-blue-700 text-white text-center rounded hover:bg-blue-600"
 	>
-		{$game.over ? 'New Game' : 'Restart Game'}
+		Raise Bet
 	</button>
 </Modal>

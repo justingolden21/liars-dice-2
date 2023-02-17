@@ -1,10 +1,10 @@
 <script>
 	import { game } from '$lib/stores/game';
 
-	$: playerName = $game.players[$game.state.turn].name || `Player ${$game.state.turn + 1}`;
+	$: playerName = $game.players[$game.turn].name || `Player ${$game.turn + 1}`;
 
 	function passPhone() {
-		$game.state.passThePhone = false;
+		$game.state = 'playerDash';
 	}
 </script>
 
