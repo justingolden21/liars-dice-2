@@ -16,15 +16,6 @@
 	function doSpot() {
 		$game.state = 'spotted';
 	}
-
-	// TODO: dedupe
-	function getNumTotalDice() {
-		let num = 0;
-		for (let i = 0; i < $game.players.length; i++) {
-			num += $game.players[i].dice.length;
-		}
-		return num;
-	}
 </script>
 
 <p class="h3">{playerName}'s turn</p>
@@ -53,9 +44,8 @@
 
 <!-- Moves -->
 <div class="flex gap-4">
-	{#if $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
-		<RaiseBetButton />
-	{/if}
+	<RaiseBetButton />
+	<!-- If there is a bet -->
 	{#if $game.bet.face !== 1}
 		<button on:click={doCall} class="button -secondary">Call</button>
 		<button on:click={doSpot} class="button -secondary">Spot</button>
