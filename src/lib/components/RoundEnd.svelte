@@ -123,6 +123,8 @@
 	{/if}
 {/each}
 
+<hr>
+
 {#if $game.state === 'gameOver'}
 	<p class="h3">Game Over</p>
 	<p class="p">{getPlayerName(getWinner())} wins!</p>

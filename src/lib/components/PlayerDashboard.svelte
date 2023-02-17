@@ -23,7 +23,13 @@
 <!-- Current Bet -->
 
 {#if $game.bet.face !== 1}
-	<p>Current bet: {$game.bet.amount} {$game.bet.face} {$game.bet.amount !== 1 ? 's' : ''}</p>
+	<p class="p">
+		Current bet: <span class="font-bold">
+			{$game.bet.amount}
+			{$game.bet.face}
+			{$game.bet.amount !== 1 ? 's' : ''}
+		</span>
+	</p>
 {/if}
 
 <!-- Dice -->
