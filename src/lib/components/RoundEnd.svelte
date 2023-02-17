@@ -3,7 +3,8 @@
  -->
 <script>
 	import { game } from '$lib/stores/game';
-	import getRoll from '../util/getRoll';
+	import getRoll from '$lib/util/getRoll';
+	import getDie from '$lib/util/getDie';
 
 	$: currentPlayerName = getPlayerName($game.turn);
 	$: betPlayerName = getPlayerName($game.bet.player);
@@ -47,7 +48,7 @@
 		return nextPlayer;
 	}
 
-    // todo: game is over if getNextPlayer returns current player (me thinks)
+	// todo: game is over if getNextPlayer returns current player (me thinks)
 
 	function rerollDice() {
 		for (let i = 0; i < $game.players.length; i++) {
@@ -91,6 +92,18 @@
 
 <p>There were {getCount($game.bet.face)}</p>
 
-TODO: show all dice (make component, also used in player dashboard)
+<hr>
+
+<!-- TODO: dedupe from player dash -->
+<!-- Dice -->
+{#each $game.players as player, idx}
+	{#if player.dice.length > 0}
+    <p>{getPlayerName(idx)}:</p>
+		{#each player.dice as die}
+			<span class="text-5xl">{getDie(die)}</span>
+		{/each}
+		<br />
+	{/if}
+{/each}
 
 <button on:click={endRound}>Continue to {getPlayerName(getNextPlayer())}</button>

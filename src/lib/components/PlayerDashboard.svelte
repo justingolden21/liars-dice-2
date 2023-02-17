@@ -2,7 +2,7 @@
 	import { game } from '$lib/stores/game';
 
 	import getDie from '$lib/util/getDie';
-	import RaiseBetButton from './RaiseBetButton.svelte';
+	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
 
