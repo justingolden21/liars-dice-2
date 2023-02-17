@@ -15,8 +15,7 @@
 
 <div class="container mx-auto p-8">
 	<h1 class="text-3xl lg:text-5xl font-light text-center">Liar's Dice</h1>
-	<!-- FIXME -->
-	{#if !game?.state?.over}
+	{#if !$game.over}
 		{#if $game.state === 'passPhone'}
 			<PassThePhone />
 		{:else if $game.state === 'playerDash'}
