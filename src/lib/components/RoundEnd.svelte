@@ -94,16 +94,19 @@
 
 	<!-- TODO: dedupe from player dash -->
 	<span>
-		{betPlayerName}'s bet of {$game.bet.amount}
-		{$game.bet.face}
-		{$game.bet.amount !== 1 ? 's' : ''}
+		{betPlayerName}'s bet of
+		<span class="font-bold">
+			{$game.bet.amount}
+			{$game.bet.face}
+			{$game.bet.amount !== 1 ? 's' : ''}
+		</span>
 	</span>
 </p>
 
 <p class="p">
 	<span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
 
-	<span>There were {getCount($game.bet.face)}</span>
+	<span>There were <span class="font-bold">{getCount($game.bet.face)}</span></span>
 </p>
 
 <hr />
