@@ -1,9 +1,9 @@
 <script>
-	// TODO: split into game.js
-	// TODO: local store
 	// TODO: store game history
 	// TODO: fullscreen, contact, about, how to play
 	// TODO: make my own modal component
+
+	// TODO: handle max bet, handle game over
 
 	import { game } from '$lib/stores/game';
 
