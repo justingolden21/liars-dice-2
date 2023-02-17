@@ -15,7 +15,6 @@
 	function getNextPlayer() {
 		const currentPlayer = $game.turn;
 		let nextPlayer = currentPlayer;
-		console.log(nextPlayer);
 		// move sequentially to next player, looping from end to start, skipping players without dice
 		do {
 			if (nextPlayer === $game.players.length - 1) {
@@ -23,7 +22,6 @@
 			} else {
 				nextPlayer++;
 			}
-			console.log(nextPlayer);
 		} while ($game.players[nextPlayer].dice.length === 0);
 
 		return nextPlayer;
