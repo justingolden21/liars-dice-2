@@ -44,7 +44,6 @@
 		modal.set(null);
 	}
 
-	// TODO: prevent from having bet greater than number of dice
 	let betAmount = $game.bet.face === 6 ? $game.bet.amount + 1 : $game.bet.amount;
 	let betFace = $game.bet.face === 6 ? 2 : $game.bet.face + 1;
 </script>

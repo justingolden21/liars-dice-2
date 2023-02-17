@@ -58,7 +58,7 @@
 
 	function endRound() {
 		$game.state = 'playerDash';
-		$game.turn = getNextPlayer(); // todo: determine next player
+		$game.turn = getNextPlayer();
 
 		// if current player is right, then better is wrong, else current player is wrong
 		const loserPlayer = playerCorrect() ? $game.bet.player : $game.turn;

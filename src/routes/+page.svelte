@@ -3,7 +3,8 @@
 	// TODO: fullscreen, contact, about, how to play
 	// TODO: make my own modal component
 
-	// TODO: handle max bet, handle game over
+	// TODO: handle game over
+	// TODO: players can enter names
 
 	import { game } from '$lib/stores/game';
 
