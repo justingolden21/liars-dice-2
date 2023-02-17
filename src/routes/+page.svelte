@@ -2,7 +2,8 @@
 	// TODO: split into game.js
 	// TODO: local store
 	// TODO: store game history
-	// TODO: fullscreen, contact, about
+	// TODO: fullscreen, contact, about, how to play
+    // TODO: make my own modal component
 
 	import { game } from '$lib/stores/game';
 
@@ -20,7 +21,7 @@
 			<PassThePhone />
 		{:else if $game.state === 'playerDash'}
 			<PlayerDashboard />
-		{:else}
+		{:else if $game.state === 'called' || $game.state === 'spotted'}
 			<RoundEnd />
 		{/if}
 	{/if}

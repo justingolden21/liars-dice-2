@@ -12,15 +12,35 @@
 		return num;
 	}
 
+	function getNextPlayer() {
+		const currentPlayer = $game.turn;
+		let nextPlayer = currentPlayer;
+		console.log(nextPlayer);
+		// move sequentially to next player, looping from end to start, skipping players without dice
+		do {
+			if (nextPlayer === $game.players.length - 1) {
+				nextPlayer = 0;
+			} else {
+				nextPlayer++;
+			}
+			console.log(nextPlayer);
+		} while ($game.players[nextPlayer].dice.length === 0);
+
+		return nextPlayer;
+	}
+
 	function raise() {
 		// Set game bet
 		$game.bet = {
 			amount: betAmount,
-			face: betFace
+			face: betFace,
+			player: $game.turn
 		};
 
 		// Set state to pass phone
 		$game.state = 'passPhone';
+
+		$game.turn = getNextPlayer();
 
 		// Close modal
 		modal.set(null);

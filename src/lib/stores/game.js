@@ -15,11 +15,11 @@ const defaultGame = {
 	numDice: 5,
     turn: 0,
     over: true,
-	state: 'passPhone', // playerDash, passPhone, roundEnd, gameEnd
+	state: 'passPhone', // playerDash, passPhone, called, spotted
 	bet: {
 		amount: 1,
-		face: 2,
-        state: 'ongoing' // ongoing, called, spotted
+		face: 1,
+        player: 0,
 	}
 };
 

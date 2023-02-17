@@ -11,13 +11,10 @@
 	// game functions
 
 	function doCall() {
-		$game.bet.state = 'called';
-		$game.state = 'roundEnd';
+		$game.state = 'called';
 	}
-	function doRaise() {}
 	function doSpot() {
-		$game.bet.state = 'spotted';
-		$game.state = 'roundEnd';
+		$game.state = 'spotted';
 	}
 </script>
 
@@ -25,7 +22,9 @@
 
 <!-- Current Bet -->
 
-<p>Current bet: {$game.bet.amount} {$game.bet.face} {$game.bet.amount !== 1 ? 's' : ''}</p>
+{#if $game.bet.face !== 1}
+	<p>Current bet: {$game.bet.amount} {$game.bet.face} {$game.bet.amount !== 1 ? 's' : ''}</p>
+{/if}
 
 <!-- Dice -->
 {#each $game.players as player}
@@ -42,7 +41,8 @@
 {/each}
 
 <!-- Moves -->
-<!-- TODO -->
-<button on:click={doCall}>Call</button>
 <RaiseBetButton />
-<button on:click={doSpot}>Spot</button>
+{#if $game.bet.face !== 1}
+	<button on:click={doCall}>Call</button>
+	<button on:click={doSpot}>Spot</button>
+{/if}
