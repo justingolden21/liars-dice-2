@@ -77,20 +77,24 @@
 	}
 </script>
 
-<p>Round over</p>
+<p class="h2">Round over</p>
 
-<p>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</p>
-
-<!-- TODO: dedupe from player dash -->
-<p>
-	{betPlayerName}'s bet of {$game.bet.amount}
-	{$game.bet.face}
-	{$game.bet.amount !== 1 ? 's' : ''}
+<p class="p">
+    <span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
+    
+    <!-- TODO: dedupe from player dash -->
+    <span>
+        {betPlayerName}'s bet of {$game.bet.amount}
+        {$game.bet.face}
+        {$game.bet.amount !== 1 ? 's' : ''}
+    </span>
 </p>
 
-<p>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}</p>
-
-<p>There were {getCount($game.bet.face)}</p>
+<p class="p">
+    <span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
+    
+    <span>There were {getCount($game.bet.face)}</span>
+</p>
 
 <hr>
 
@@ -98,7 +102,7 @@
 <!-- Dice -->
 {#each $game.players as player, idx}
 	{#if player.dice.length > 0}
-    <p>{getPlayerName(idx)}:</p>
+    <p class="p">{getPlayerName(idx)}:</p>
 		{#each player.dice as die}
 			<span class="text-5xl">{getDie(die)}</span>
 		{/each}
@@ -106,4 +110,4 @@
 	{/if}
 {/each}
 
-<button on:click={endRound}>Continue to {getPlayerName(getNextPlayer())}</button>
+<button on:click={endRound} class="button -secondary">Continue to {getPlayerName(getNextPlayer())}</button>

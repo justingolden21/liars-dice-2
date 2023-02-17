@@ -7,7 +7,7 @@
 	function newGame() {
 		resetGame();
 
-        // Set up `numDice` and `players` in `$game`
+		// Set up `numDice` and `players` in `$game`
 		$game.numDice = numDice;
 		const players = [];
 		for (let i = 0; i < numPlayers; i++) {
@@ -19,7 +19,7 @@
 			});
 		}
 		$game.players = players;
-        $game.over = false;
+		$game.over = false;
 
 		// Close modal
 		modal.set(null);
@@ -29,25 +29,22 @@
 	let numDice = 5;
 </script>
 
-<label for="num-players-select">Number of players</label>
-<select bind:value={numPlayers} id="num-players-select" class="px-4 py-2 bg-white">
-	{#each Array(5) as _, i}
-		<option value={i + 2}>{i + 2}</option>
-	{/each}
-</select>
+<div class="mt-4">
+	<label for="num-players-select">Number of players</label>
+	<select bind:value={numPlayers} id="num-players-select" class="select">
+		{#each Array(5) as _, i}
+			<option value={i + 2}>{i + 2}</option>
+		{/each}
+	</select>
+</div>
 
-<br />
+<div class="mt-4">
+	<label for="num-dice-select">Number of dice</label>
+	<select bind:value={numDice} id="num-dice-select" class="select">
+		{#each Array(10) as _, i}
+			<option value={i + 1}>{i + 1}</option>
+		{/each}
+	</select>
+</div>
 
-<label for="num-dice-select">Number of dice</label>
-<select bind:value={numDice} id="num-dice-select" class="px-4 py-2 bg-white">
-	{#each Array(10) as _, i}
-		<option value={i + 1}>{i + 1}</option>
-	{/each}
-</select>
-
-<button
-	on:click={newGame}
-	class="block mt-4 px-4 py-2 bg-blue-700 text-white text-center rounded hover:bg-blue-600"
->
-	Start Game
-</button>
+<button on:click={newGame} class="button -primary block mt-6 mb-4"> Start Game </button>

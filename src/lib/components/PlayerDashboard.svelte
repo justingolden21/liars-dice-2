@@ -18,7 +18,7 @@
 	}
 </script>
 
-<p class="font-bold">{playerName}'s turn</p>
+<p class="h3">{playerName}'s turn</p>
 
 <!-- Current Bet -->
 
@@ -27,22 +27,26 @@
 {/if}
 
 <!-- Dice -->
-{#each $game.players as player}
-	{#if player.dice.length > 0}
-		{#each player.dice as die}
-			{#if player === currentPlayer}
-				<span class="text-5xl">{getDie(die)}</span>
-			{:else}
-				<span class="text-5xl">◻</span>
-			{/if}
-		{/each}
-		<br />
-	{/if}
-{/each}
+<div class="my-6">
+    {#each $game.players as player}
+        {#if player.dice.length > 0}
+            {#each player.dice as die}
+                {#if player === currentPlayer}
+                    <span class="text-5xl">{getDie(die)}</span>
+                {:else}
+                    <span class="text-5xl">◻</span>
+                {/if}
+            {/each}
+            <br />
+        {/if}
+    {/each}
+</div>
 
 <!-- Moves -->
-<RaiseBetButton />
-{#if $game.bet.face !== 1}
-	<button on:click={doCall}>Call</button>
-	<button on:click={doSpot}>Spot</button>
-{/if}
+<div class="flex gap-4">
+    <RaiseBetButton />
+    {#if $game.bet.face !== 1}
+        <button on:click={doCall} class="button -secondary">Call</button>
+        <button on:click={doSpot} class="button -secondary">Spot</button>
+    {/if}
+</div>

@@ -14,7 +14,7 @@
 </script>
 
 <div class="container mx-auto p-8">
-	<h1 class="text-3xl lg:text-5xl font-light text-center">Liar's Dice</h1>
+	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
 	{#if !$game.over}
 		{#if $game.state === 'passPhone'}
 			<PassThePhone />
