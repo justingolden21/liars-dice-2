@@ -11,12 +11,16 @@ const defaultGame = {
 			dice: []
 		}
 	],
-    numDice: 5,
-	turn: 0,
-    bet: {
-        amount: 1,
-        face: 2,
-    }
+	numDice: 5,
+	state: {
+		turn: 0,
+		passThePhone: true,
+		over: true
+	},
+	bet: {
+		amount: 1,
+		face: 2
+	}
 };
 
 export const game = localStore('game', JSON.parse(JSON.stringify(defaultGame)));

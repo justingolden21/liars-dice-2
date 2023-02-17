@@ -2,17 +2,27 @@
 	import { game, resetGame } from '$lib/stores/game';
 	import getRoll from '$lib/util/getRoll';
 
+	export let modal;
+
 	function newGame() {
 		resetGame();
+
+        // Set up `numDice` and `players` in `$game`
 		$game.numDice = numDice;
 		const players = [];
 		for (let i = 0; i < numPlayers; i++) {
 			players.push({
 				name: '',
-				dice: Array(numDice).fill(0).map((_) => getRoll())
+				dice: Array(numDice)
+					.fill(0)
+					.map((_) => getRoll())
 			});
 		}
 		$game.players = players;
+        $game.state.over = false;
+
+		// Close modal
+		modal.set(null);
 	}
 
 	let numPlayers = 2;

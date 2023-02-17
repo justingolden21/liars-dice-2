@@ -4,11 +4,24 @@
 	// TODO: store game history
 	// TODO: fullscreen, contact, about
 
+	import { game } from '$lib/stores/game';
+
 	import NewGameButton from '$lib/components/NewGameButton.svelte';
+	import PassThePhone from '../lib/components/PassThePhone.svelte';
+	import PlayerDashboard from '../lib/components/PlayerDashboard.svelte';
 </script>
 
 <div class="container mx-auto p-8">
 	<h1 class="text-3xl lg:text-5xl font-light text-center">Liar's Dice</h1>
+    <!-- FIXME -->
+	{#if !(game?.state?.over)}
+		{#if $game.state.passThePhone}
+			<PassThePhone />
+		{:else}
+			<PlayerDashboard />
+		{/if}
+	{/if}
+
 	<NewGameButton />
 
 	<!-- ⚀ ⚁ ⚂ ⚃ ⚄ ⚅ -->
