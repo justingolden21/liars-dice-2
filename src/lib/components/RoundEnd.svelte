@@ -45,10 +45,6 @@
 			}
 		} while ($game.players[nextPlayer].dice.length === 0);
 
-		if (nextPlayer === currentPlayer) {
-			$game.state = 'gameOver';
-		}
-
 		return nextPlayer;
 	}
 
@@ -59,13 +55,17 @@
 	}
 
 	function endRound() {
-		$game.state = 'playerTurn';
-		$game.turn = getNextPlayer();
-
 		// if current player is right, then better is wrong, else current player is wrong
 		const loserPlayer = playerCorrect() ? $game.bet.player : $game.turn;
 		// loser loses a die
 		$game.players[loserPlayer].dice.pop();
+
+		if (gameIsOver()) {
+			$game.state = 'gameOver';
+		}
+
+		$game.state = 'playerTurn';
+		$game.turn = getNextPlayer();
 
 		// reroll
 		rerollDice();
@@ -76,6 +76,10 @@
 			face: 1,
 			player: 0
 		};
+	}
+
+	function gameIsOver() {
+		return $game.players.filter((p) => p.dice.length > 0).length === 1;
 	}
 
 	function getWinner() {
@@ -123,7 +127,7 @@
 	{/if}
 {/each}
 
-<hr>
+<hr />
 
 {#if $game.state === 'gameOver'}
 	<p class="h3">Game Over</p>

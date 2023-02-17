@@ -4,6 +4,8 @@
 	// TODO: make my own modal component
 
 	// TODO: handle game over
+	// Only runs on continue click, needs to check what will happen after die is lost
+
 	// TODO: players can enter names
 	// TODO: favicon, title, seo meta
 
