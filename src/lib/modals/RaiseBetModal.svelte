@@ -48,6 +48,8 @@
 	let betFace = $game.bet.face === 6 ? 2 : $game.bet.face + 1;
 </script>
 
+<p class="h3">Raise Bet</p>
+
 <div class="mt-4">
 	<label for="bet-amount-select">Amount</label>
 	<select bind:value={betAmount} id="bet-amount-select" class="select">

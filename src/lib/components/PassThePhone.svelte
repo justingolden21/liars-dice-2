@@ -4,7 +4,7 @@
 	$: playerName = $game.players[$game.turn].name || `Player ${$game.turn + 1}`;
 
 	function passPhone() {
-		$game.state = 'playerDash';
+		$game.state = 'playerTurn';
 	}
 </script>
 

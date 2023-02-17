@@ -13,8 +13,8 @@
 <Modal show={$modal}>
 	<button
 		on:click={showModal}
-		class="button {$game.over ? '-primary' : '-danger'} block mt-10 mx-auto"
+		class="button {$game.state === 'gameOver' ? '-primary' : '-danger'} block mt-10 mx-auto"
 	>
-		{$game.over ? 'New Game' : 'Restart Game'}
+		{$game.state === 'gameOver' ? 'New Game' : 'Restart Game'}
 	</button>
 </Modal>

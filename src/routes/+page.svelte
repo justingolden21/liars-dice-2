@@ -5,6 +5,7 @@
 
 	// TODO: handle game over
 	// TODO: players can enter names
+	// TODO: favicon, title, seo meta
 
 	import { game } from '$lib/stores/game';
 
@@ -16,10 +17,10 @@
 
 <div class="container mx-auto p-8">
 	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
-	{#if !$game.over}
+	{#if !($game.state === 'gameOver')}
 		{#if $game.state === 'passPhone'}
 			<PassThePhone />
-		{:else if $game.state === 'playerDash'}
+		{:else if $game.state === 'playerTurn'}
 			<PlayerDashboard />
 		{:else if $game.state === 'called' || $game.state === 'spotted'}
 			<RoundEnd />

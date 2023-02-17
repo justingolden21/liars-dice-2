@@ -19,7 +19,7 @@
 			});
 		}
 		$game.players = players;
-		$game.over = false;
+		$game.state = 'passPhone';
 
 		// Close modal
 		modal.set(null);
@@ -28,6 +28,8 @@
 	let numPlayers = 2;
 	let numDice = 5;
 </script>
+
+<p class="h3">New Game</p>
 
 <div class="mt-4">
 	<label for="num-players-select">Number of players</label>

@@ -45,10 +45,12 @@
 			}
 		} while ($game.players[nextPlayer].dice.length === 0);
 
+		if (nextPlayer === currentPlayer) {
+			$game.state = 'gameOver';
+		}
+
 		return nextPlayer;
 	}
-
-	// todo: game is over if getNextPlayer returns current player (me thinks)
 
 	function rerollDice() {
 		for (let i = 0; i < $game.players.length; i++) {
@@ -57,7 +59,7 @@
 	}
 
 	function endRound() {
-		$game.state = 'playerDash';
+		$game.state = 'playerTurn';
 		$game.turn = getNextPlayer();
 
 		// if current player is right, then better is wrong, else current player is wrong
@@ -75,34 +77,42 @@
 			player: 0
 		};
 	}
+
+	function getWinner() {
+		for (let i = 0; i < $game.players.length; i++) {
+			if ($game.players[i].dice.length > 0) {
+				return i;
+			}
+		}
+	}
 </script>
 
 <p class="h2">Round over</p>
 
 <p class="p">
-    <span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
-    
-    <!-- TODO: dedupe from player dash -->
-    <span>
-        {betPlayerName}'s bet of {$game.bet.amount}
-        {$game.bet.face}
-        {$game.bet.amount !== 1 ? 's' : ''}
-    </span>
+	<span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
+
+	<!-- TODO: dedupe from player dash -->
+	<span>
+		{betPlayerName}'s bet of {$game.bet.amount}
+		{$game.bet.face}
+		{$game.bet.amount !== 1 ? 's' : ''}
+	</span>
 </p>
 
 <p class="p">
-    <span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
-    
-    <span>There were {getCount($game.bet.face)}</span>
+	<span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
+
+	<span>There were {getCount($game.bet.face)}</span>
 </p>
 
-<hr>
+<hr />
 
 <!-- TODO: dedupe from player dash -->
 <!-- Dice -->
 {#each $game.players as player, idx}
 	{#if player.dice.length > 0}
-    <p class="p">{getPlayerName(idx)}:</p>
+		<p class="p">{getPlayerName(idx)}:</p>
 		{#each player.dice as die}
 			<span class="text-5xl">{getDie(die)}</span>
 		{/each}
@@ -110,4 +120,11 @@
 	{/if}
 {/each}
 
-<button on:click={endRound} class="button -secondary">Continue to {getPlayerName(getNextPlayer())}</button>
+{#if $game.state === 'gameOver'}
+	<p class="h3">Game Over</p>
+	<p class="p">{getPlayerName(getWinner())} wins!</p>
+{:else}
+	<button on:click={endRound} class="button -secondary">
+		Continue to {getPlayerName(getNextPlayer())}
+	</button>
+{/if}

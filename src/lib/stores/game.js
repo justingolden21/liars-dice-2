@@ -14,8 +14,7 @@ const defaultGame = {
 	],
 	numDice: 5,
     turn: 0,
-    over: true,
-	state: 'passPhone', // playerDash, passPhone, called, spotted
+	state: 'gameOver', // gameOver, playerTurn, passPhone, called, spotted
 	bet: {
 		amount: 1,
 		face: 1,
