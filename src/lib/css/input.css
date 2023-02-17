@@ -1,6 +1,10 @@
 .button,
 .select {
-	@apply px-4 py-2 text-center rounded font-semibold;
+	@apply px-4 py-2 font-semibold;
+}
+
+.button {
+	@apply text-center rounded;
 }
 
 .button.-primary {
