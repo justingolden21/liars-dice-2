@@ -17,5 +17,5 @@
 
 .button.-secondary,
 .select {
-	@apply bg-transparent text-gray-700 hover:bg-gray-200;
+	@apply bg-transparent text-gray-700 hover:bg-gray-200 border-2 border-gray-200 py-1;
 }
