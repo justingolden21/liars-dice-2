@@ -7,14 +7,7 @@
 
 	import RaiseBetModal from '$lib/modals/RaiseBetModal.svelte';
 
-	// TODO: dedupe
-	function getNumTotalDice() {
-		let num = 0;
-		for (let i = 0; i < $game.players.length; i++) {
-			num += $game.players[i].dice.length;
-		}
-		return num;
-	}
+	import getNumTotalDice from '$lib/util/getNumTotalDice';
 </script>
 
 {#if !$game || $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
