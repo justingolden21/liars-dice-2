@@ -5,6 +5,7 @@
 	import { game } from '$lib/stores/game';
 	import getRoll from '$lib/util/getRoll';
 	import getDie from '$lib/util/getDie';
+	import getNextPlayer from '$lib/util/getNextPlayer';
 
 	$: currentPlayerName = getPlayerName($game.turn);
 	$: betPlayerName = getPlayerName($game.bet.player);
@@ -30,22 +31,6 @@
 			// player is correct in call if num dice in bet is larger than amount of dice bet
 			return getCount($game.bet.face) < $game.bet.amount;
 		}
-	}
-
-	// TODO: dedupe
-	function getNextPlayer() {
-		const currentPlayer = $game.turn;
-		let nextPlayer = currentPlayer;
-		// move sequentially to next player, looping from end to start, skipping players without dice
-		do {
-			if (nextPlayer === $game.players.length - 1) {
-				nextPlayer = 0;
-			} else {
-				nextPlayer++;
-			}
-		} while ($game.players[nextPlayer].dice.length === 0);
-
-		return nextPlayer;
 	}
 
 	function rerollDice() {

@@ -4,21 +4,7 @@
 	export let showModal;
 
 	import getNumTotalDice from '$lib/util/getNumTotalDice';
-
-	function getNextPlayer() {
-		const currentPlayer = $game.turn;
-		let nextPlayer = currentPlayer;
-		// move sequentially to next player, looping from end to start, skipping players without dice
-		do {
-			if (nextPlayer === $game.players.length - 1) {
-				nextPlayer = 0;
-			} else {
-				nextPlayer++;
-			}
-		} while ($game.players[nextPlayer].dice.length === 0);
-
-		return nextPlayer;
-	}
+	import getNextPlayer from '$lib/util/getNextPlayer';
 
 	function raise() {
 		// Set game bet
