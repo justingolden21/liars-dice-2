@@ -1,20 +1,26 @@
 <script>
-	import { writable } from 'svelte/store';
+	import Modal from './Modal.svelte';
 
-	import Modal, { bind } from 'svelte-simple-modal';
+	let showModal = false;
 
 	import { game } from '$lib/stores/game';
 
 	import NewGameModal from '$lib/modals/NewGameModal.svelte';
-	const modal = writable(null);
-	const showModal = () => modal.set(bind(NewGameModal, { modal }));
 </script>
 
-<Modal show={$modal}>
-	<button
-		on:click={showModal}
-		class="button {$game.state === 'gameOver' ? '-primary' : '-danger'} block mt-10 mx-auto"
-	>
-		{$game.state === 'gameOver' ? 'New Game' : 'Restart Game'}
-	</button>
-</Modal>
+<button
+	on:click={() => (showModal = true)}
+	class="button {$game.state === 'gameOver' ? '-primary' : '-danger'} block mt-10 mx-auto"
+>
+	{$game.state === 'gameOver' ? 'New Game' : 'Restart Game'}
+</button>
+
+{#if showModal}
+	<Modal on:close={() => (showModal = false)}>
+		<h3 slot="header" class="h3">
+			New Game
+		</h3>
+
+		<NewGameModal bind:showModal />
+	</Modal>
+{/if}

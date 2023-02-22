@@ -1,13 +1,11 @@
 <script>
-	import { writable } from 'svelte/store';
+	import Modal from './Modal.svelte';
+
+	let showModal = false;
 
 	import { game } from '$lib/stores/game';
 
-	import Modal, { bind } from 'svelte-simple-modal';
-
 	import RaiseBetModal from '$lib/modals/RaiseBetModal.svelte';
-	const modal = writable(null);
-	const showModal = () => modal.set(bind(RaiseBetModal, { modal }));
 
 	// TODO: dedupe
 	function getNumTotalDice() {
@@ -19,8 +17,14 @@
 	}
 </script>
 
-<Modal show={$modal}>
-	{#if !$game || $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
-		<button on:click={showModal} class="button -secondary"> Raise </button>
-	{/if}
-</Modal>
+{#if !$game || $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
+	<button on:click={() => (showModal = true)} class="button -secondary"> Raise </button>
+{/if}
+
+{#if showModal}
+	<Modal on:close={() => (showModal = false)}>
+		<h3 slot="header" class="h3">Raise Bet</h3>
+
+		<RaiseBetModal bind:showModal />
+	</Modal>
+{/if}

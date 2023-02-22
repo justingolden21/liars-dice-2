@@ -1,7 +1,7 @@
 <script>
 	import { game } from '$lib/stores/game';
 
-	export let modal;
+	export let showModal;
 
 	// TODO: clean up
 	function getNumTotalDice() {
@@ -41,14 +41,12 @@
 		$game.turn = getNextPlayer();
 
 		// Close modal
-		modal.set(null);
+		showModal = false;
 	}
 
 	let betAmount = $game.bet.face === 6 ? $game.bet.amount + 1 : $game.bet.amount;
 	let betFace = $game.bet.face === 6 ? 2 : $game.bet.face + 1;
 </script>
-
-<p class="h3">Raise Bet</p>
 
 <div class="mt-4">
 	<label for="bet-amount-select">Amount</label>

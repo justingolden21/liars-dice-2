@@ -2,7 +2,7 @@
 	import { game, resetGame } from '$lib/stores/game';
 	import getRoll from '$lib/util/getRoll';
 
-	export let modal;
+	export let showModal;
 
 	function newGame() {
 		resetGame();
@@ -22,14 +22,12 @@
 		$game.state = 'passPhone';
 
 		// Close modal
-		modal.set(null);
+		showModal = false;
 	}
 
 	let numPlayers = 2;
 	let numDice = 5;
 </script>
-
-<p class="h3">New Game</p>
 
 <div class="mt-4">
 	<label for="num-players-select">Number of players</label>

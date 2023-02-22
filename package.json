@@ -28,8 +28,5 @@
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module",
-	"dependencies": {
-		"svelte-simple-modal": "^1.5.2"
-	}
+	"type": "module"
 }

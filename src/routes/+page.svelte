@@ -1,7 +1,6 @@
 <script>
 	// TODO: store game history
 	// TODO: fullscreen, contact, about, how to play
-	// TODO: make my own modal component
 
 	// TODO: handle game over
 	// Only runs on continue click, needs to check what will happen after die is lost
