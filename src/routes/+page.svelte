@@ -18,6 +18,9 @@
 
 <div class="container mx-auto p-8">
 	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
+
+	<hr />
+
 	{#if !($game.state === 'gameOver')}
 		{#if $game.state === 'passPhone'}
 			<PassThePhone />
@@ -27,6 +30,8 @@
 			<RoundEnd />
 		{/if}
 	{/if}
+
+	<hr />
 
 	<NewGameButton />
 </div>
