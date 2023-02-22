@@ -121,6 +121,6 @@
 	<p class="p">{getPlayerName(getWinner())} wins!</p>
 {:else}
 	<button on:click={endRound} class="button -secondary">
-		Continue to {getPlayerName(getNextPlayer())}
+		Continue to {getPlayerName(getNextPlayer())} →
 	</button>
 {/if}

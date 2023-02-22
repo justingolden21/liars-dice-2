@@ -10,4 +10,4 @@
 
 <p class="h3">Pass the phone to {playerName}</p>
 
-<button on:click={passPhone} class="button -secondary mt-4">Continue</button>
+<button on:click={passPhone} class="button -secondary mt-4">Continue →</button>
