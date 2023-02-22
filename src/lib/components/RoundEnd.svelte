@@ -3,8 +3,8 @@
  -->
 <script>
 	import { game } from '$lib/stores/game';
+	import DieIcon from '$lib/components/DieIcon.svelte';
 	import getRoll from '$lib/util/getRoll';
-	import getDie from '$lib/util/getDie';
 	import getNextPlayer from '$lib/util/getNextPlayer';
 
 	$: currentPlayerName = getPlayerName($game.turn);
@@ -105,9 +105,11 @@
 {#each $game.players as player, idx}
 	{#if player.dice.length > 0}
 		<p class="p">{getPlayerName(idx)}:</p>
-		{#each player.dice as die}
-			<span class="text-5xl">{getDie(die)}</span>
-		{/each}
+		<div>
+			{#each player.dice as die}
+				<DieIcon number={die} />
+			{/each}
+		</div>
 		<br />
 	{/if}
 {/each}

@@ -1,7 +1,8 @@
 <script>
 	import { game } from '$lib/stores/game';
 
-	import getDie from '$lib/util/getDie';
+	import DieIcon from '$lib/components/DieIcon.svelte';
+
 	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
@@ -36,13 +37,15 @@
 <div class="my-6">
 	{#each $game.players as player}
 		{#if player.dice.length > 0}
-			{#each player.dice as die}
-				{#if player === currentPlayer}
-					<span class="text-5xl">{getDie(die)}</span>
-				{:else}
-					<span class="text-5xl">◻</span>
-				{/if}
-			{/each}
+			<div>
+				{#each player.dice as die}
+					{#if player === currentPlayer}
+						<DieIcon number={die} />
+					{:else}
+						<DieIcon number="0" />
+					{/if}
+				{/each}
+			</div>
 			<br />
 		{/if}
 	{/each}
