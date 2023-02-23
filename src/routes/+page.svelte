@@ -16,21 +16,22 @@
 	import RoundEnd from '$lib/components/RoundEnd.svelte';
 </script>
 
-<div class="container mx-auto p-8">
+<div class="container mx-auto p-8 h-screen flex flex-col items-center justify-between">
 	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
 
-	{#if !($game.state === 'gameOver')}
-		<hr />
-		{#if $game.state === 'passPhone'}
-			<PassThePhone />
-		{:else if $game.state === 'playerTurn'}
-			<PlayerDashboard />
-		{:else if $game.state === 'called' || $game.state === 'spotted'}
-			<RoundEnd />
+	<div>
+		{#if !($game.state === 'gameOver')}
+			<hr />
+			{#if $game.state === 'passPhone'}
+				<PassThePhone />
+			{:else if $game.state === 'playerTurn'}
+				<PlayerDashboard />
+			{:else if $game.state === 'called' || $game.state === 'spotted'}
+				<RoundEnd />
+			{/if}
+			<hr />
 		{/if}
-	{/if}
-
-	<hr />
+	</div>
 
 	<NewGameButton />
 </div>
