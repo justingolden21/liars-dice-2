@@ -2,6 +2,8 @@
     continune btn changes state to next player (with dice left) and has appropriate player lose dice
  -->
 <script>
+	import { onMount } from 'svelte';
+
 	import { game } from '$lib/stores/game';
 	import DieIcon from '$lib/components/DieIcon.svelte';
 	import getRoll from '$lib/util/getRoll';
@@ -39,33 +41,40 @@
 		}
 	}
 
-	function endRound() {
+	function getLoserPlayer() {
 		// if current player is right, then better is wrong, else current player is wrong
-		const loserPlayer = playerCorrect() ? $game.bet.player : $game.turn;
+		return playerCorrect() ? $game.bet.player : $game.turn;
+	}
+
+	function endRound() {
 		// loser loses a die
-		$game.players[loserPlayer].dice.pop();
+		$game.players[getLoserPlayer()].dice.pop();
 
-		if (gameIsOver()) {
+		$game.state = 'playerTurn';
+		$game.turn = getNextPlayer();
+
+		// reroll
+		rerollDice();
+
+		// reset bet (todo: dedupe from $game store, move there, needs to be consistent)
+		$game.bet = {
+			amount: 1,
+			face: 1,
+			player: 0
+		};
+	}
+
+	function checkGameOver() {
+		// if 2 players and one player will lose their last die
+		const gameWillBeOver =
+			$game.players.filter((p) => p.dice.length > 0).length === 2 &&
+			$game.players[getLoserPlayer()].dice.length === 1;
+		if (gameWillBeOver) {
 			$game.state = 'gameOver';
-		} else {
-			$game.state = 'playerTurn';
-			$game.turn = getNextPlayer();
-
-			// reroll
-			rerollDice();
-
-			// reset bet (todo: dedupe from $game store, move there, needs to be consistent)
-			$game.bet = {
-				amount: 1,
-				face: 1,
-				player: 0
-			};
 		}
 	}
 
-	function gameIsOver() {
-		return $game.players.filter((p) => p.dice.length > 0).length === 1;
-	}
+	onMount(checkGameOver);
 
 	function getWinner() {
 		for (let i = 0; i < $game.players.length; i++) {
