@@ -2,11 +2,7 @@
 	// TODO: store game history
 	// TODO: fullscreen, contact, about, how to play
 
-	// TODO: handle game over
-	// Only runs on continue click, needs to check what will happen after die is lost
-
 	// TODO: players can enter names
-	// TODO: favicon, title, seo meta
 
 	import { game } from '$lib/stores/game';
 
