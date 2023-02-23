@@ -19,17 +19,14 @@
 <div class="container mx-auto p-8 h-screen flex flex-col items-center justify-between">
 	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
 
-	<div>
-		{#if $game.state !== 'gameOver'}
-			<hr />
-			{#if $game.state === 'passPhone'}
-				<PassThePhone />
-			{:else if $game.state === 'playerTurn'}
-				<PlayerDashboard />
-			{:else if $game.state === 'called' || $game.state === 'spotted'}
-				<RoundEnd />
-			{/if}
-			<hr />
+	<div class="border-y border-gray-200 py-4 w-full">
+		{#if $game.state === 'passPhone'}
+			<PassThePhone />
+		{:else if $game.state === 'playerTurn'}
+			<PlayerDashboard />
+		{:else if $game.bet.face !== 1}
+			<!-- call, spot or game over -->
+			<RoundEnd />
 		{/if}
 	</div>
 

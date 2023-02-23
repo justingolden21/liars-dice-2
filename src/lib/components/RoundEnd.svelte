@@ -47,20 +47,20 @@
 
 		if (gameIsOver()) {
 			$game.state = 'gameOver';
+		} else {
+			$game.state = 'playerTurn';
+			$game.turn = getNextPlayer();
+
+			// reroll
+			rerollDice();
+
+			// reset bet (todo: dedupe from $game store, move there, needs to be consistent)
+			$game.bet = {
+				amount: 1,
+				face: 1,
+				player: 0
+			};
 		}
-
-		$game.state = 'playerTurn';
-		$game.turn = getNextPlayer();
-
-		// reroll
-		rerollDice();
-
-		// reset bet (todo: dedupe from $game store, move there, needs to be consistent)
-		$game.bet = {
-			amount: 1,
-			face: 1,
-			player: 0
-		};
 	}
 
 	function gameIsOver() {
@@ -76,45 +76,47 @@
 	}
 </script>
 
-<p class="h2">Round over</p>
+{#if $game.state !== 'gameOver'}
+	<p class="h2">Round over</p>
 
-<p class="p">
-	<span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
+	<p class="p">
+		<span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
+
+		<!-- TODO: dedupe from player dash -->
+		<span>
+			{betPlayerName}'s bet of
+			<span class="font-bold">
+				{$game.bet.amount}
+				{$game.bet.face}
+				{$game.bet.amount !== 1 ? 's' : ''}
+			</span>
+		</span>
+	</p>
+
+	<p class="p">
+		<span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
+
+		<span>There were <span class="font-bold">{getCount($game.bet.face)}</span></span>
+	</p>
+
+	<hr />
 
 	<!-- TODO: dedupe from player dash -->
-	<span>
-		{betPlayerName}'s bet of
-		<span class="font-bold">
-			{$game.bet.amount}
-			{$game.bet.face}
-			{$game.bet.amount !== 1 ? 's' : ''}
-		</span>
-	</span>
-</p>
+	<!-- Dice -->
+	{#each $game.players as player, idx}
+		{#if player.dice.length > 0}
+			<p class="p">{getPlayerName(idx)}:</p>
+			<div>
+				{#each player.dice as die}
+					<DieIcon number={die} />
+				{/each}
+			</div>
+			<br />
+		{/if}
+	{/each}
 
-<p class="p">
-	<span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
-
-	<span>There were <span class="font-bold">{getCount($game.bet.face)}</span></span>
-</p>
-
-<hr />
-
-<!-- TODO: dedupe from player dash -->
-<!-- Dice -->
-{#each $game.players as player, idx}
-	{#if player.dice.length > 0}
-		<p class="p">{getPlayerName(idx)}:</p>
-		<div>
-			{#each player.dice as die}
-				<DieIcon number={die} />
-			{/each}
-		</div>
-		<br />
-	{/if}
-{/each}
-
-<hr />
+	<hr />
+{/if}
 
 {#if $game.state === 'gameOver'}
 	<p class="h3">Game Over</p>
