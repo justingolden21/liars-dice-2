@@ -3,6 +3,7 @@
 
 	import DieIcon from '$lib/components/DieIcon.svelte';
 
+	import BetDisplay from '$lib/components/BetDisplay.svelte';
 	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
@@ -25,11 +26,7 @@
 
 {#if $game.bet.face !== 1}
 	<p class="p">
-		Current bet: <span class="font-bold">
-			{$game.bet.amount}
-			{$game.bet.face}
-			{$game.bet.amount !== 1 ? 's' : ''}
-		</span>
+		Current bet: <BetDisplay />
 	</p>
 {/if}
 

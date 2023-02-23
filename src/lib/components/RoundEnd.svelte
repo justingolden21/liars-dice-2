@@ -6,6 +6,7 @@
 
 	import { game } from '$lib/stores/game';
 	import DieIcon from '$lib/components/DieIcon.svelte';
+	import BetDisplay from '$lib/components/BetDisplay.svelte';
 	import getRoll from '$lib/util/getRoll';
 	import getNextPlayer from '$lib/util/getNextPlayer';
 
@@ -95,14 +96,9 @@
 <p class="p">
 	<span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
 
-	<!-- TODO: dedupe from player dash -->
 	<span>
 		{betPlayerName}'s bet of
-		<span class="font-bold">
-			{$game.bet.amount}
-			{$game.bet.face}
-			{$game.bet.amount !== 1 ? 's' : ''}
-		</span>
+		<BetDisplay />
 	</span>
 </p>
 
