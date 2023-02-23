@@ -11,7 +11,7 @@
 </script>
 
 {#if !$game || $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
-	<button on:click={() => (showModal = true)} class="button -secondary"> Raise </button>
+	<button on:click={() => (showModal = true)} class="button -white"> Raise </button>
 {/if}
 
 {#if showModal}

@@ -56,7 +56,7 @@
 	<RaiseBetButton />
 	<!-- If there is a bet -->
 	{#if $game.bet.face !== 1}
-		<button on:click={doCall} class="button -secondary">Call</button>
-		<button on:click={doSpot} class="button -secondary">Spot</button>
+		<button on:click={doCall} class="button -white">Call</button>
+		<button on:click={doSpot} class="button -white">Spot</button>
 	{/if}
 </div>

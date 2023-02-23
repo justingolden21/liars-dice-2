@@ -19,3 +19,7 @@
 .select {
 	@apply bg-transparent text-gray-700 hover:bg-gray-200 border-2 border-gray-200 py-1;
 }
+
+.button.-white {
+	@apply text-white hover:bg-white hover:text-blue-900 border-2 border-white;
+}

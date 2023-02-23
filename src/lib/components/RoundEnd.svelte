@@ -130,7 +130,7 @@
 
 {#if $game.state !== 'gameOver'}
 	<hr />
-	<button on:click={endRound} class="button -secondary">
+	<button on:click={endRound} class="button -white">
 		Continue to {getPlayerName(getNextPlayer())} →
 	</button>
 {/if}

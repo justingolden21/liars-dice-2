@@ -12,10 +12,10 @@
 	import RoundEnd from '$lib/components/RoundEnd.svelte';
 </script>
 
-<div class="container mx-auto p-8 h-screen flex flex-col items-center justify-between">
+<div class="container mx-auto sm:p-8 h-screen flex flex-col items-center justify-between">
 	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
 
-	<div class="border-y border-gray-200 py-4 w-full">
+	<div class="bg-blue-900 text-white p-4 sm:p-10">
 		{#if $game.state === 'passPhone'}
 			<PassThePhone />
 		{:else if $game.state === 'playerTurn'}

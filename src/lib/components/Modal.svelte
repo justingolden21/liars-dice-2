@@ -66,7 +66,7 @@
 	}
 
 	.modal {
-		@apply absolute left-1/2 top-1/2 overflow-auto -translate-x-1/2 -translate-y-1/2 p-4 rounded bg-white;
+		@apply absolute left-1/2 top-1/2 overflow-auto -translate-x-1/2 -translate-y-1/2 p-4 rounded bg-white text-black;
 		width: calc(100vw - 4rem);
 		max-width: 32rem;
 		max-height: calc(100vh - 4rem);
