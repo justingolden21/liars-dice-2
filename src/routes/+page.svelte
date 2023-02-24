@@ -1,11 +1,12 @@
 <script>
-	// TODO: store game history
-	// TODO: fullscreen, contact, about, how to play
-
-	// TODO: players can enter names
+	/**
+	 * Main `index.html` route that acts as a parent for all game logic
+	 * @TODO store game history
+	 * @TODO fullscreen, contact, about, and how to play
+	 * @TODO players can enter names
+	 */
 
 	import { game } from '$lib/stores/game';
-
 	import NewGameButton from '$lib/components/NewGameButton.svelte';
 	import PassThePhone from '$lib/components/PassThePhone.svelte';
 	import PlayerDashboard from '$lib/components/PlayerDashboard.svelte';

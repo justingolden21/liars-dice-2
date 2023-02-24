@@ -1,11 +1,15 @@
 <script>
-	import Modal from './Modal.svelte';
-
-	let showModal = false;
+	/**
+	 * Displays a button to start / restart a new game, which opens `NewGameModal`
+	 * Text is conditionally rendered based on if the game is over
+	 * Used by `+page`
+	 */
 
 	import { game } from '$lib/stores/game';
-
+	import Modal from '$lib/components/Modal.svelte';
 	import NewGameModal from '$lib/modals/NewGameModal.svelte';
+
+	let showModal = false;
 </script>
 
 <button

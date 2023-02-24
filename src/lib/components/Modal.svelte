@@ -1,9 +1,8 @@
 <script>
 	/**
 	 * Modal component
-	 *
-	 * Closes on click away, esc, or close button
-	 * Traps focus
+	 * Closes on click away, esc, or close button and traps focus and scroll
+	 * Used by `NewGameButton` and `RaiseBetButton`
 	 * Modified from:
 	 * @link https://svelte.dev/examples/modal
 	 */

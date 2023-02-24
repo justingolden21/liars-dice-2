@@ -1,3 +1,5 @@
+/* Styles for buttons and selects */
+
 .button,
 .select {
 	@apply px-4 py-2 font-semibold;

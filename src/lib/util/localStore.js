@@ -1,5 +1,5 @@
 /**
- * Create a store that syncs with `localStorage`
+ * Creates a svelte store that syncs with `localStorage`
  * Adapted from rgbstudios
  */
 

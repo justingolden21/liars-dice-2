@@ -1,4 +1,10 @@
 <script>
+	/**
+	 * Displays a Modal for starting a new game
+	 * Handles new game logic
+	 * Used by `NewGameButton`
+	 */
+
 	import { game, resetGame } from '$lib/stores/game';
 	import getRoll from '$lib/util/getRoll';
 

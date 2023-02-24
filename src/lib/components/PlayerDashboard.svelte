@@ -1,17 +1,20 @@
 <script>
+	/**
+	 * Game screen for the current player's dashboard
+	 * Displays their dice and the current bet and options
+	 * Used by `+page`
+	 */
+
 	import { game } from '$lib/stores/game';
-
-
 	import BetDisplay from '$lib/components/BetDisplay.svelte';
-	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 	import DiceDisplay from '$lib/components/DiceDisplay.svelte';
+	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
 
 	$: playerName = currentPlayer.name || `Player ${$game.turn + 1}`;
 
-	// game functions
-
+	// Game functions
 	function doCall() {
 		$game.state = 'called';
 	}
@@ -23,7 +26,6 @@
 <p class="h3">{playerName}'s turn</p>
 
 <!-- Current Bet -->
-
 {#if $game.bet.face !== 1}
 	<p class="p">
 		Current bet: <BetDisplay />

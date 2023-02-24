@@ -1,3 +1,7 @@
+/**
+ * Store file for the game state
+ */
+
 import localStore from '$lib/util/localStore';
 
 const defaultGame = {

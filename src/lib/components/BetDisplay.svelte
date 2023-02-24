@@ -1,4 +1,9 @@
 <script>
+	/**
+	 * Displays the current bet amount and face
+	 * Used by `PlayerDashboard` and `RoundEnd`
+	 */
+
 	import { game } from '$lib/stores/game';
 </script>
 

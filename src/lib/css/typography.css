@@ -1,3 +1,5 @@
+/* Styles for headings, paragraphs, and horizontal rules */
+
 .h1 {
 	@apply text-3xl md:text-4xl lg:text-5xl font-light leading-tight mt-4 mb-2;
 }

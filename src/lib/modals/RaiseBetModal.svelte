@@ -1,10 +1,15 @@
 <script>
+	/**
+	 * Displays a Modal for raising a bet
+	 * Handles raise bet logic
+	 * Used by `RaiseBetButton`
+	 */
+
 	import { game } from '$lib/stores/game';
+	import getNextPlayer from '$lib/util/getNextPlayer';
+	import getNumTotalDice from '$lib/util/getNumTotalDice';
 
 	export let showModal;
-
-	import getNumTotalDice from '$lib/util/getNumTotalDice';
-	import getNextPlayer from '$lib/util/getNextPlayer';
 
 	function raise() {
 		// Set game bet

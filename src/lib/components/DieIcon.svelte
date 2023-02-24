@@ -1,4 +1,10 @@
 <script>
+	/**
+	 * Displays an icon for a given number
+	 * @param number - number - number on the die; 0 is a hidden die
+	 * Used by `DiceDisplay`
+	 */
+
 	export let number;
 
 	const icons = {

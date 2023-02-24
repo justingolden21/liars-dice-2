@@ -1,4 +1,10 @@
 <script>
+	/**
+	 * Displays each players' dice
+	 * @param showAll - boolean - if true show all dice, else hide dice from non active players
+	 * Used by `PlayerDashboard` and `RoundEnd`
+	 */
+
 	import { game } from '$lib/stores/game';
 	import DieIcon from '$lib/components/DieIcon.svelte';
 

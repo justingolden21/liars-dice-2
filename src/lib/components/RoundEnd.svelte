@@ -1,17 +1,22 @@
-<!-- shows result of round
-    continune btn changes state to next player (with dice left) and has appropriate player lose dice
- -->
 <script>
+	/**
+	 * Game screen for the end of a round (or game)
+	 * Shows the result of a round
+	 * Continue button changes state to the next valid player
+	 * Handles the appropriate player losing dice and rerolling dice
+	 * Used by `+page`
+	 */
+
 	import { onMount } from 'svelte';
 
 	import { game } from '$lib/stores/game';
 	import BetDisplay from '$lib/components/BetDisplay.svelte';
 	import DiceDisplay from '$lib/components/DiceDisplay.svelte';
-	import getRoll from '$lib/util/getRoll';
 	import getNextPlayer from '$lib/util/getNextPlayer';
+	import getRoll from '$lib/util/getRoll';
 
-	$: currentPlayerName = getPlayerName($game.turn);
 	$: betPlayerName = getPlayerName($game.bet.player);
+	$: currentPlayerName = getPlayerName($game.turn);
 
 	function getPlayerName(idx) {
 		return $game.players[idx].name || `Player ${idx + 1}`;
