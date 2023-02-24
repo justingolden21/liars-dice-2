@@ -14,7 +14,7 @@
 	$: gameOver = $game.state === 'gameOver';
 </script>
 
-<button on:click={() => (showModal = true)} class="button {gameOver ? '-primary' : '-danger'}">
+<button on:click={() => (showModal = true)} class="button {gameOver ? '-primary' : '-danger'} mb-6">
 	{gameOver ? 'New Game' : 'Restart Game'}
 </button>
 
