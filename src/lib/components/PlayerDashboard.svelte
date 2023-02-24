@@ -9,6 +9,7 @@
 	import BetDisplay from '$lib/components/BetDisplay.svelte';
 	import DiceDisplay from '$lib/components/DiceDisplay.svelte';
 	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
+	import getNumTotalDice from '$lib/util/getNumTotalDice';
 
 	$: currentPlayer = $game.players[$game.turn];
 	$: playerName = currentPlayer.name || `Player ${$game.turn + 1}`;
@@ -36,9 +37,13 @@
 	<DiceDisplay />
 </div>
 
-<!-- Moves -->
+<!-- Move options -->
 <div class="flex gap-4">
-	<RaiseBetButton />
+	<!-- Only show the button if the bet can be raised -->
+	{#if !$game || $game.bet.amount !== getNumTotalDice() || $game.bet.face !== 6}
+		<RaiseBetButton />
+	{/if}
+
 	<!-- If there is a bet -->
 	{#if $game.bet.face !== 1}
 		<button on:click={doCall} class="button -white">Call</button>
