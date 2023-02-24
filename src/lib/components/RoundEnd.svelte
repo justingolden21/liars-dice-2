@@ -115,12 +115,12 @@
 </p>
 
 <p class="p">
-	<span>{currentPlayerName} {$game.state === 'called' ? 'called' : 'spotted'}</span>
+	<span>{currentPlayerName} <span class="font-bold">{$game.state === 'called' ? 'called' : 'spotted'}</span></span>
 	<span>{betPlayerName}'s bet of <BetDisplay /></span>
 </p>
 
 <p class="p">
-	<span>{currentPlayerName} was {playerCorrect() ? 'right' : 'wrong'}.</span>
+	<span>{currentPlayerName} was <span class="font-bold">{playerCorrect() ? 'right' : 'wrong'}</span>.</span>
 	<span>There were <span class="font-bold">{getCount($game.bet.face)}</span></span>
 </p>
 
