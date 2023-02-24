@@ -32,6 +32,8 @@
 	</p>
 {/if}
 
+<p class="p pt-4">{getNumTotalDice()} dice total</p>
+
 <!-- Dice -->
 <div class="my-6">
 	<DiceDisplay />

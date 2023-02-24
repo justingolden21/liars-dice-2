@@ -1,9 +1,13 @@
 <script>
 	/**
 	 * Main `index.html` route that acts as a parent for all game logic
+	 *
 	 * @TODO store game history
 	 * @TODO fullscreen, contact, about, and how to play
 	 * @TODO make it a PWA
+	 *
+	 * @TODO maybe: stats for which players have won vs how many games they've played, stats for number of players and dice per game, etc.
+	 * @TODO maybe: show previous bet history this round
 	 */
 
 	import { game } from '$lib/stores/game';
