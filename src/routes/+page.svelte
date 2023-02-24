@@ -15,10 +15,14 @@
 	import PassThePhone from '$lib/components/PassThePhone.svelte';
 	import PlayerDashboard from '$lib/components/PlayerDashboard.svelte';
 	import RoundEnd from '$lib/components/RoundEnd.svelte';
+	import SettingDarkMode from '$lib/components/SettingDarkMode.svelte';
 </script>
 
 <div class="container mx-auto sm:p-8 h-screen flex flex-col items-center justify-between gap-4">
-	<h1 class="h1 text-center mb-10">Liar's Dice</h1>
+	<div class="flex justify-between items-center gap-4">
+		<SettingDarkMode />
+		<h1 class="h1 text-center mb-10">Liar's Dice</h1>
+	</div>
 
 	{#if $game.bet.face !== 1 || $game.state !== 'gameOver'}
 		<div class="bg-blue-900 text-white p-4 sm:p-10">
