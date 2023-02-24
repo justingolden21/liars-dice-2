@@ -102,3 +102,11 @@ The game bet starts on a face of 1, which is an invalid bet. This is a hacky way
 The bet starts out on face of 1 (so it's a valid state and the player can raise but not call or spot) at the beginning of the game and beginning of the round.
 
 This is why you'll see checks for `$game.bet.face !== 1` in the code to see if the bet is valid.
+
+## Links
+
+Netlify: https://app.netlify.com/sites/playliarsdice/overview
+
+Repo: https://github.com/justingolden21/liars-dice-2
+
+Live site: https://playliarsdice.netlify.app/
