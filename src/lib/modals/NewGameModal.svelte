@@ -39,7 +39,7 @@
 
 <div class="mt-4">
 	<label for="num-players-select">Number of players</label>
-	<select bind:value={numPlayers} id="num-players-select" class="select">
+	<select bind:value={numPlayers} id="num-players-select" class="input">
 		{#each Array(5) as _, i}
 			<option value={i + 2}>{i + 2}</option>
 		{/each}
@@ -48,7 +48,7 @@
 
 <div class="mt-4">
 	<label for="num-dice-select">Number of dice</label>
-	<select bind:value={numDice} id="num-dice-select" class="select">
+	<select bind:value={numDice} id="num-dice-select" class="input">
 		{#each Array(10) as _, i}
 			<option value={i + 1}>{i + 1}</option>
 		{/each}

@@ -34,7 +34,7 @@
 
 <div class="mt-4">
 	<label for="bet-amount-select">Amount</label>
-	<select bind:value={betAmount} id="bet-amount-select" class="select">
+	<select bind:value={betAmount} id="bet-amount-select" class="input">
 		{#each Array(getNumTotalDice()) as _, i}
 			{#if i + ($game.bet.face === 6 ? 0 : 1) >= $game.bet.amount}
 				<option value={i + 1}>{i + 1}</option>
@@ -45,7 +45,7 @@
 
 <div class="mt-4">
 	<label for="bet-face-select">Face</label>
-	<select bind:value={betFace} id="bet-face-select" class="select">
+	<select bind:value={betFace} id="bet-face-select" class="input">
 		{#each Array(5) as _, i}
 			<option disabled={$game.bet.amount === betAmount && $game.bet.face > i + 1} value={i + 2}>
 				{i + 2}

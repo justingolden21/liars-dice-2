@@ -1,7 +1,6 @@
 /* Styles for buttons, selects, and text inputs */
 
 .button,
-.select,
 .input {
 	@apply px-4 py-2 font-semibold;
 }
@@ -11,15 +10,14 @@
 }
 
 .button.-primary {
-	@apply bg-blue-700 text-white hover:bg-blue-600;
+	@apply bg-blue-700 text-white hover:bg-blue-600 text-xl;
 }
 
 .button.-danger {
 	@apply bg-red-700 text-white hover:bg-red-600;
 }
 
-.button.-secondary,
-.select {
+.button.-secondary {
 	@apply bg-transparent text-gray-700 hover:bg-gray-200 border-2 border-gray-200 py-1;
 }
 
@@ -28,5 +26,5 @@
 }
 
 .input {
-	@apply border-2 border-gray-200;
+	@apply border-2 border-gray-200 ml-2;
 }
