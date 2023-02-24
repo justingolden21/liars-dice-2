@@ -14,7 +14,7 @@
 
 	let modal;
 
-	const handle_keydown = (e) => {
+	const handleKeydown = (e) => {
 		if (e.key === 'Escape') {
 			close();
 			return;
@@ -36,16 +36,16 @@
 		}
 	};
 
-	const previously_focused = typeof document !== 'undefined' && document.activeElement;
+	const previouslyFocused = typeof document !== 'undefined' && document.activeElement;
 
-	if (previously_focused) {
+	if (previouslyFocused) {
 		onDestroy(() => {
-			previously_focused.focus();
+			previouslyFocused.focus();
 		});
 	}
 </script>
 
-<svelte:window on:keydown={handle_keydown} />
+<svelte:window on:keydown={handleKeydown} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="modal-background" on:click={close} />

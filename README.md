@@ -54,7 +54,7 @@ Each file has a comment explaining what it does in one line, (optionally) more l
 
 `/**/` syntax should be used for multi-line comments. Comments should be in sentence case and end in punctuation unless they are a phrase.
 
-Imports should be ordered alphabetically with the exception of the `$game` store which should be at the top.
+Imports: Imports should be ordered alphabetically with the exception of the `$game` store which should be at the top.
 
 The appropriate order for files should be:
 
@@ -64,7 +64,11 @@ The appropriate order for files should be:
 4. Computed values (if any)
 5. Functions (if any)
 
-Utility scripts should contain one function, export it as default, and have the same file name as the function they export.
+Utility scripts: utility scripts should contain one function, export it as default, and have the same file name as the function they export.
+
+Styles: If a svelte file has many styles or a lot of logic within HTML, break out the styles into a `<style>` tag and use `@apply`.
+
+Naming: use `camelCase` for variable and function names and `PascalCase` for components.
 
 **Git**
 
@@ -84,3 +88,5 @@ The page itself is rendered from `src/app.html`, `src/routes/+layout.svelte`, th
 - `$lib/modals` contains modals used within the project
 - `$lib/stores` contains svelte stores used within the project
 - `$lib/util` contains utility functions for game logic (and local storage)
+
+To apply typographic styles, add the appropriate class, eg. `.p` or `.h1`. h1 should be the highest level heading (1 per page), h2 should be used for only the most important, non-h1 elements, and h3 should be used for all other headings.

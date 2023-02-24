@@ -8,9 +8,9 @@
 	import { game } from '$lib/stores/game';
 	import DieIcon from '$lib/components/DieIcon.svelte';
 
-	$: currentPlayer = $game.players[$game.turn];
-
 	export let showAll = false;
+
+	$: currentPlayer = $game.players[$game.turn];
 
 	function getPlayerName(idx) {
 		return $game.players[idx].name || `Player ${idx + 1}`;

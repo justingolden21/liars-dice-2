@@ -11,7 +11,6 @@
 	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
-
 	$: playerName = currentPlayer.name || `Player ${$game.turn + 1}`;
 
 	// Game functions
