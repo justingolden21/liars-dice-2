@@ -1,10 +1,10 @@
 <script>
 	import { game } from '$lib/stores/game';
 
-	import DieIcon from '$lib/components/DieIcon.svelte';
 
 	import BetDisplay from '$lib/components/BetDisplay.svelte';
 	import RaiseBetButton from '$lib/components/RaiseBetButton.svelte';
+	import DiceDisplay from '$lib/components/DiceDisplay.svelte';
 
 	$: currentPlayer = $game.players[$game.turn];
 
@@ -32,20 +32,7 @@
 
 <!-- Dice -->
 <div class="my-6">
-	{#each $game.players as player}
-		{#if player.dice.length > 0}
-			<div>
-				{#each player.dice as die}
-					{#if player === currentPlayer}
-						<DieIcon number={die} />
-					{:else}
-						<DieIcon number="0" />
-					{/if}
-				{/each}
-			</div>
-			<br />
-		{/if}
-	{/each}
+	<DiceDisplay />
 </div>
 
 <!-- Moves -->

@@ -5,8 +5,8 @@
 	import { onMount } from 'svelte';
 
 	import { game } from '$lib/stores/game';
-	import DieIcon from '$lib/components/DieIcon.svelte';
 	import BetDisplay from '$lib/components/BetDisplay.svelte';
+	import DiceDisplay from '$lib/components/DiceDisplay.svelte';
 	import getRoll from '$lib/util/getRoll';
 	import getNextPlayer from '$lib/util/getNextPlayer';
 
@@ -110,19 +110,7 @@
 
 <hr />
 
-<!-- TODO: dedupe from player dash -->
-<!-- Dice -->
-{#each $game.players as player, idx}
-	{#if player.dice.length > 0}
-		<p class="p">{getPlayerName(idx)}:</p>
-		<div>
-			{#each player.dice as die}
-				<DieIcon number={die} />
-			{/each}
-		</div>
-		<br />
-	{/if}
-{/each}
+<DiceDisplay showAll />
 
 {#if $game.state !== 'gameOver'}
 	<hr />
