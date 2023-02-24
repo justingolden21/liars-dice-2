@@ -12,10 +12,7 @@
 	let showModal = false;
 </script>
 
-<button
-	on:click={() => (showModal = true)}
-	class="button {$game.state === 'gameOver' ? '-primary' : '-danger'} block mt-10 mx-auto"
->
+<button on:click={() => (showModal = true)} class="button {$game.state === 'gameOver' ? '-primary' : '-danger'}">
 	{$game.state === 'gameOver' ? 'New Game' : 'Restart Game'}
 </button>
 

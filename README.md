@@ -52,7 +52,7 @@ npm run vitest
 
 Each file has a comment explaining what it does in one line, (optionally) more lines explaining in depth, and mentions where the file is used.
 
-`/**/` syntax should be used for multi-line comments. Comments should be in sentence case and end in punctuation unless they are a phrase. Use backticks \` for variable, function, file, and other names related to code.
+`/**/` syntax should be used for multi-line comments. Comments should be in sentence case and end in punctuation unless they are a phrase. Use backticks (\`) for variable, function, file, and other names related to code. Strings should be mentioned in single quotes (')
 
 Imports: Svelte imports should be first, followed by packages, followed by local imports. Local imports should be ordered alphabetically with the exception of the `$game` store which should be at the top.
 
