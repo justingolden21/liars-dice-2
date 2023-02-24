@@ -3,7 +3,7 @@
 	 * Main `index.html` route that acts as a parent for all game logic
 	 * @TODO store game history
 	 * @TODO fullscreen, contact, about, and how to play
-	 * @TODO players can enter names
+	 * @TODO make it a PWA
 	 */
 
 	import { game } from '$lib/stores/game';

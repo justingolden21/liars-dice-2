@@ -1,7 +1,8 @@
-/* Styles for buttons and selects */
+/* Styles for buttons, selects, and text inputs */
 
 .button,
-.select {
+.select,
+.input {
 	@apply px-4 py-2 font-semibold;
 }
 
@@ -24,4 +25,8 @@
 
 .button.-white {
 	@apply text-white hover:bg-white hover:text-blue-900 border-2 border-white;
+}
+
+.input {
+	@apply border-2 border-gray-200;
 }

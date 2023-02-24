@@ -18,7 +18,7 @@
 		const players = [];
 		for (let i = 0; i < numPlayers; i++) {
 			players.push({
-				name: '',
+				name: document.getElementById('player' + i).value.trim(),
 				dice: Array(numDice)
 					.fill(0)
 					.map((_) => getRoll())
@@ -34,6 +34,8 @@
 	let numPlayers = 2;
 	let numDice = 5;
 </script>
+
+<h3 class="h3">Game Setup</h3>
 
 <div class="mt-4">
 	<label for="num-players-select">Number of players</label>
@@ -52,5 +54,18 @@
 		{/each}
 	</select>
 </div>
+
+<hr />
+
+<h3 class="h3">Player Names (optional)</h3>
+
+{#each Array(numPlayers) as _, idx}
+	<div class="my-4">
+		<label for="player{idx}">Player {idx + 1}:</label>
+		<input id="player{idx}" type="text" class="input" />
+	</div>
+{/each}
+
+<hr />
 
 <button on:click={newGame} class="button -primary block mt-6 mb-4">Start Game</button>
