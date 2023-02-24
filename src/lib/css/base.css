@@ -1,6 +1,10 @@
 html {
 	background-color: theme(colors.gray.100);
 }
+html.dark {
+	background-color: theme(colors.gray.900);
+	color: theme(colors.white);
+}
 ::selection {
 	background-color: theme(colors.blue.700);
 	color: theme(colors.white);
