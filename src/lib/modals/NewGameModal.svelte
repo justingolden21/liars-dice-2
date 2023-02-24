@@ -53,4 +53,4 @@
 	</select>
 </div>
 
-<button on:click={newGame} class="button -primary block mt-6 mb-4"> Start Game </button>
+<button on:click={newGame} class="button -primary block mt-6 mb-4">Start Game</button>

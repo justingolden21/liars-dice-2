@@ -17,10 +17,10 @@ const defaultGame = {
 	],
 	numDice: 5,
 	turn: 0,
-	state: 'gameOver', // gameOver, playerTurn, passPhone, called, spotted
+	state: 'gameOver', // 'gameOver', 'playerTurn', 'passPhone', 'called', or 'spotted'
 	bet: {
 		amount: 1,
-		face: 1,
+		face: 1, // `bet.face` is 1 so we have an invalid bet that cannot be called or spotted
 		player: 0
 	}
 };

@@ -52,9 +52,9 @@ npm run vitest
 
 Each file has a comment explaining what it does in one line, (optionally) more lines explaining in depth, and mentions where the file is used.
 
-`/**/` syntax should be used for multi-line comments. Comments should be in sentence case and end in punctuation unless they are a phrase.
+`/**/` syntax should be used for multi-line comments. Comments should be in sentence case and end in punctuation unless they are a phrase. Use backticks \` for variable, function, file, and other names related to code.
 
-Imports: Imports should be ordered alphabetically with the exception of the `$game` store which should be at the top.
+Imports: Svelte imports should be first, followed by packages, followed by local imports. Local imports should be ordered alphabetically with the exception of the `$game` store which should be at the top.
 
 The appropriate order for files should be:
 
@@ -79,7 +79,7 @@ Naming: use `camelCase` for variable and function names and `PascalCase` for com
 
 The page itself is rendered from `src/app.html`, `src/routes/+layout.svelte`, then into `src/routes/+page.svelte`.
 
-`+page.svlete` acts as the game controller and imports the appropriate components from `src/lib/components/`.
+`+page.svelte` acts as the game controller and imports the appropriate components from `src/lib/components/`.
 
 `$lib/` is an alias for `src/lib/`. Everything relevant is here.
 
@@ -90,3 +90,15 @@ The page itself is rendered from `src/app.html`, `src/routes/+layout.svelte`, th
 - `$lib/util` contains utility functions for game logic (and local storage)
 
 To apply typographic styles, add the appropriate class, eg. `.p` or `.h1`. h1 should be the highest level heading (1 per page), h2 should be used for only the most important, non-h1 elements, and h3 should be used for all other headings.
+
+**Game players**
+
+Players are handled based on their index in the list of players.
+
+**Game bets**
+
+The game bet starts on a face of 1, which is an invalid bet. This is a hacky way of making the game logic work.
+
+The bet starts out on face of 1 (so it's a valid state and the player can raise but not call or spot) at the beginning of the game and beginning of the round.
+
+This is why you'll see checks for `$game.bet.face !== 1` in the code to see if the bet is valid.
