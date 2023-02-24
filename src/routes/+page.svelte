@@ -29,17 +29,3 @@
 
 	<NewGameButton />
 </div>
-
-<style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.gray.100);
-	}
-
-	:global(::selection) {
-		background-color: theme(colors.blue.700);
-		color: theme(colors.white);
-	}
-	:global(*:focus) {
-		@apply ring ring-blue-300 outline-none;
-	}
-</style>
