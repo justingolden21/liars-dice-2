@@ -14,7 +14,7 @@
 
 {#if showModal}
 	<Modal on:close={() => (showModal = false)}>
-		<h3 slot="header" class="h3">Raise Bet</h3>
+		<h3 slot="header" class="h2">Raise Bet</h3>
 		<RaiseBetModal bind:showModal />
 	</Modal>
 {/if}

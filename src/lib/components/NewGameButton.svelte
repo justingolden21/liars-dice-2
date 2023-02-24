@@ -20,7 +20,7 @@
 
 {#if showModal}
 	<Modal on:close={() => (showModal = false)}>
-		<h3 slot="header" class="h3">New Game</h3>
+		<h3 slot="header" class="h2">New Game</h3>
 		<NewGameModal bind:showModal />
 	</Modal>
 {/if}
