@@ -10,10 +10,12 @@
 	import NewGameModal from '$lib/modals/NewGameModal.svelte';
 
 	let showModal = false;
+
+	$: gameOver = $game.state === 'gameOver';
 </script>
 
-<button on:click={() => (showModal = true)} class="button {$game.state === 'gameOver' ? '-primary' : '-danger'}">
-	{$game.state === 'gameOver' ? 'New Game' : 'Restart Game'}
+<button on:click={() => (showModal = true)} class="button {gameOver ? '-primary' : '-danger'}">
+	{gameOver ? 'New Game' : 'Restart Game'}
 </button>
 
 {#if showModal}
