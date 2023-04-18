@@ -44,7 +44,7 @@
 	// Reroll all players' dice
 	function rerollDice() {
 		for (let i = 0; i < $game.players.length; i++) {
-			$game.players[i].dice.map((_) => getRoll());
+			$game.players[i].dice = $game.players[i].dice.map((_) => getRoll());
 		}
 	}
 
